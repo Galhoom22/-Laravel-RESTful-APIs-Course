@@ -18,7 +18,7 @@ class SettingResource extends JsonResource
             'about us' => $this->about_us,
             'why us' => $this->why_us,
             'goal' => $this->goal,
-            'vision' => $this->vision
+            'vision' => $this->vision 
         ];
     }
 }
