@@ -15,6 +15,6 @@ class SettingController extends Controller
     public function __invoke(Request $request)
     {
         $settings = Setting::get();
-        return SettingResource::collection($settings); 
+        return SettingResource::collection($settings);
     }
 }
