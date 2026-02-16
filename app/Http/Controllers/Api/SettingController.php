@@ -15,7 +15,7 @@ class SettingController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $settings = Setting::find(5);
+        $settings = Setting::find(1);
         if ($settings) {
             return ApiResponse::sendResponse(200, 'Settings retrived successfully', new SettingResource($settings));
         } else {
