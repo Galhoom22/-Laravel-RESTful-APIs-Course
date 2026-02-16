@@ -19,7 +19,7 @@ class SettingController extends Controller
         if ($settings) {
             return ApiResponse::sendResponse(200, 'Settings retrived successfully', new SettingResource($settings));
         } else {
-            return ApiResponse::sendResponse(404, "Settings not found", []);
+            return ApiResponse::sendResponse(404, "Settings not found", []); 
         }
     }
 }
