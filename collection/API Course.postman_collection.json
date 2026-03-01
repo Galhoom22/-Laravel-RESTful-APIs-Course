@@ -1,0 +1,39 @@
+{
+  "info": {
+    "_postman_id": "73bbfc75-9956-445f-8f4b-6082b2b27444",
+    "name": "API Course",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46654024"
+  },
+  "item": [
+    {
+      "name": "Settings Module",
+      "item": [
+        {
+          "name": "Get All Settings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}api/settings",
+              "host": [
+                "{{API_URL}}api"
+              ],
+              "path": [
+                "settings"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "API_URL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
