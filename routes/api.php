@@ -22,4 +22,4 @@ Route::get('/cities', CityController::class);
 Route::get('/districts', DistrictController::class);
 
 ## Messages Module
-Route::post('/messages', MessageController::class);
+Route::post('/message', MessageController::class);
