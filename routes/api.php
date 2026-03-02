@@ -18,4 +18,4 @@ Route::get('/settings', SettingController::class);
 Route::get('/cities', CityController::class);
 
 ## Districts Module
-Route::get('/districts/{city_id}', DistrictController::class);
+Route::get('/districts', DistrictController::class);
