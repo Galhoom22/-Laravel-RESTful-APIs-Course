@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Helpers\ApiResponse;
+use Illuminate\Contracts\Validation\Validator as ValidationValidator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class NewMessageRequest extends FormRequest
 {
@@ -12,6 +15,14 @@ class NewMessageRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    protected function failedValidation(ValidationValidator $validator)
+    {
+        if($this->is('api/*')){
+            $response = ApiResponse::sendResponse(422, 'Validation Errors', $validator->errors());
+            throw new ValidationException($validator, $response);
+        }
     }
 
     /**
