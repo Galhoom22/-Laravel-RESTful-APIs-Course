@@ -62,7 +62,7 @@ class AuthController extends Controller
             $data['name'] = $user->name;
             $data['email'] = $user->email;
 
-            return ApiResponse::sendResponse(201, 'User Logged In Successfully', $data);
+            return ApiResponse::sendResponse(200, 'User Logged In Successfully', $data);
         }
 
         return ApiResponse::sendResponse(401, 'User Login Failed', ['error' => 'Invalid Credentials']);
