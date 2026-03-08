@@ -20,7 +20,7 @@ class AuthController extends Controller
         ], [], [
             'name' => 'Name',
             'email' => 'Email',
-            'password' => 'Password'
+            'password' => 'Password' 
         ]);
 
         if($validator->fails()){
