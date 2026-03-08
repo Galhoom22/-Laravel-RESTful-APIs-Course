@@ -8,10 +8,12 @@ use App\Models\City;
 use App\Http\Controllers\Api\DistrictController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\DomainController;
+use App\Http\Controllers\Api\AuthController;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+## Auth Module
+Route::controller(AuthController::class)->group(function(){
+    Route::post('register', 'register');
+});
 
 ## Settings Module
 Route::get('/settings', SettingController::class);
