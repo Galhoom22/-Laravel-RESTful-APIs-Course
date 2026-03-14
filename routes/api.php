@@ -41,4 +41,9 @@ Route::prefix('ads')->controller(AdController::class)->group(function(){
     Route::get('/latest', 'latest');
     Route::get('domain/{domain_id}', 'domain');
     Route::get('/search', 'search');
+
+    // User API ads endpoints
+    Route::middleware('auth:sanctum')->group(function(){
+        Route::post('create', 'create');
+    });
 });

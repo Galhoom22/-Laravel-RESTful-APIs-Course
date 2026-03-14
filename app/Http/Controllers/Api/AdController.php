@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdRequest;
 use App\Http\Resources\AdResource;
 use Illuminate\Http\Request;
 use App\Models\Ad;
@@ -59,5 +60,14 @@ class AdController extends Controller
             return ApiResponse::sendResponse(200, 'search completed', AdResource::collection($ads));
         }
         return ApiResponse::sendResponse(200, 'no results', []);
+    }
+
+    public function create(AdRequest $request){
+        $data = $request->validated();
+        $data['user_id'] = $request->user()->id;
+        $record = Ad::create($data);
+        if($record){
+            return ApiResponse::sendResponse(201, 'Ad Created Successfully', new AdResource($record));
+        }
     }
 }
