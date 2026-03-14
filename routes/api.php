@@ -45,5 +45,6 @@ Route::prefix('ads')->controller(AdController::class)->group(function(){
     // User API ads endpoints
     Route::middleware('auth:sanctum')->group(function(){
         Route::post('create', 'create');
+        Route::post('update/{adId}', 'update');
     });
 });
