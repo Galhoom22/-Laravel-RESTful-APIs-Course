@@ -19,6 +19,6 @@ class DomainController extends Controller
         if(count($domains) > 0){
             return ApiResponse::sendResponse(200, 'Domains Retrieved Successfully', DomainResource::collection($domains));
         }
-        return ApiResponse::sendResponse(200, 'Domains are empty', null);
+        return ApiResponse::sendResponse(200, 'Domains are empty', null); 
     }
 }
