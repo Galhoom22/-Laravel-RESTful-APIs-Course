@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AdController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\SettingController;
 use Illuminate\Http\Request;
@@ -32,3 +33,10 @@ Route::post('/message', MessageController::class);
 
 ## Domains Module
 Route::get('/domains', DomainController::class);
+
+## Ads Module
+Route::prefix('ads')->controller(AdController::class)->group(function(){
+    // Basic
+    Route::get('/', 'index'); 
+    
+});
