@@ -46,5 +46,6 @@ Route::prefix('ads')->controller(AdController::class)->group(function(){
     Route::middleware('auth:sanctum')->group(function(){
         Route::post('create', 'create');
         Route::post('update/{adId}', 'update');
+        Route::get('delete/{adId}', 'delete');
     });
 });

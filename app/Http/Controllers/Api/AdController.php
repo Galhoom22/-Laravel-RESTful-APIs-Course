@@ -73,14 +73,30 @@ class AdController extends Controller
 
     public function update(AdRequest $request, $adId){
         $ad = Ad::findOrFail($adId);
+
         if($ad->user_id != $request->user()->id){
             return ApiResponse::sendResponse(403, 'you are not allowed to update', null);
         }
 
         $data = $request->validated();
         $updated = $ad->update($data);
+
         if($updated){
             return ApiResponse::sendResponse(201, 'Your Ad updated successfully', new AdResource($ad));
+        }
+    }
+
+    public function delete(Request $request, $adId){
+        $ad = Ad::findOrFail($adId);
+
+        if($ad->user_id != $request->user()->id){
+            return ApiResponse::sendResponse(403, 'you are not allowed to delete', null);
+        }
+
+        $success = $ad->delete();
+
+        if($success){
+            return ApiResponse::sendResponse(200, 'Your Ad deleted successfully', null);
         }
     }
 }
