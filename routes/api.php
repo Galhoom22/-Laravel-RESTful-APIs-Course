@@ -38,5 +38,5 @@ Route::get('/domains', DomainController::class);
 Route::prefix('ads')->controller(AdController::class)->group(function(){
     // Basic
     Route::get('/', 'index'); 
-    
+    Route::get('/latest', 'latest');
 });
