@@ -1,39 +1,595 @@
 {
-  "info": {
-    "_postman_id": "73bbfc75-9956-445f-8f4b-6082b2b27444",
-    "name": "API Course",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "46654024"
-  },
-  "item": [
-    {
-      "name": "Settings Module",
-      "item": [
+    "info": {
+        "name": "API Course",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
         {
-          "name": "Get All Settings",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{API_URL}}api/settings",
-              "host": [
-                "{{API_URL}}api"
-              ],
-              "path": [
-                "settings"
-              ]
-            }
-          },
-          "response": []
+            "name": "1. Auth Module",
+            "item": [
+                {
+                    "name": "Register New User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Test User",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "test@example.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "password",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "password_confirmation",
+                                    "value": "password",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/register",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "register"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Login User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "email",
+                                    "value": "test@example.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "password",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/login",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/logout",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "logout"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "2. Settings Module",
+            "item": [
+                {
+                    "name": "Get All Settings",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/settings",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "settings"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "3. Location Module",
+            "item": [
+                {
+                    "name": "Get All Cities",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/cities",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "cities"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Districts by City",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/districts?city=1",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "districts"
+                            ],
+                            "query": [
+                                {
+                                    "key": "city",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "4. Messages Module",
+            "item": [
+                {
+                    "name": "Send Message",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "John Doe",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "john@example.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "1234567890",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "message",
+                                    "value": "Hello, I need help.",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/message",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "5. Domains Module",
+            "item": [
+                {
+                    "name": "Get All Domains",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/domains",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "domains"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "6. Ads Module",
+            "item": [
+                {
+                    "name": "Get All Ads With Pagination",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/ads?page=1",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Latest Ads",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/ads/latest",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads",
+                                "latest"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Ads based on domain",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/ads/domain/1",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads",
+                                "domain",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Search Ads",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{API_URL}}api/ads/search?search=test",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads",
+                                "search"
+                            ],
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "test"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create User Ad",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "My New Ad",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "01000000000",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "text",
+                                    "value": "This is my ad description",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "domain_id",
+                                    "value": "1",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/ads/create",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads",
+                                "create"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update User Ad",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "My Updated Ad",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "01000000000",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "text",
+                                    "value": "This is my ad description updated",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "domain_id",
+                                    "value": "1",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/ads/update/1",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads",
+                                "update",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete User Ad",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/ads/delete/1",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads",
+                                "delete",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get My Ads",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{API_URL}}api/ads/myads",
+                            "host": [
+                                "{{API_URL}}api"
+                            ],
+                            "path": [
+                                "ads",
+                                "myads"
+                            ]
+                        }
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "variable": [
-    {
-      "key": "API_URL",
-      "value": "",
-      "type": "default"
-    }
-  ]
+    ],
+    "variable": [
+        {
+            "key": "API_URL",
+            "value": "http://127.0.0.1:8000/",
+            "type": "default"
+        },
+        {
+            "key": "TOKEN",
+            "value": "",
+            "type": "default"
+        }
+    ]
 }
