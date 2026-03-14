@@ -105,6 +105,6 @@ class AdController extends Controller
         if(count($ads) > 0){
             return ApiResponse::sendResponse(200,'my ads retrieved successfully', AdResource::collection($ads));
         }
-        return ApiResponse::sendResponse(200, 'you do not have any ads', []);
+        return ApiResponse::sendResponse(200, 'you do not have any ads', []); 
     }
 }
