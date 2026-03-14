@@ -39,4 +39,5 @@ Route::prefix('ads')->controller(AdController::class)->group(function(){
     // Basic
     Route::get('/', 'index'); 
     Route::get('/latest', 'latest');
+    Route::get('domain/{domain_id}', 'domain');
 });

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             SettingSeeder::class,
+            DomainSeeder::class,
             AdSeeder::class,
         ]);
     }

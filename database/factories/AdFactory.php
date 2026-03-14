@@ -24,7 +24,7 @@ class AdFactory extends Factory
             'phone' => $this->faker->phoneNumber(),
             'status' => $this->faker->randomElement([0, 1]),
             'user_id' => null,
-            'domain_id' => null,
+            'domain_id' => \App\Models\Domain::inRandomOrder()->first()?->id ?? \App\Models\Domain::factory()->create()->id,
         ];
     }
 }
