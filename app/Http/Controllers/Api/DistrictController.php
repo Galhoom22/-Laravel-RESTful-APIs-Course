@@ -21,5 +21,5 @@ class DistrictController extends Controller
         }else{
             return ApiResponse::sendResponse(404, 'Districts Not Found', null);
         }
-    }
+    } 
 }
