@@ -36,7 +36,7 @@ class AdRequest extends FormRequest
             'title' => 'required',
             'phone' => 'required',
             'text' => 'required',
-            'domain_id' => 'required',
+            'domain_id' => 'required|exists:domains,id',
         ];
     }
 
