@@ -49,4 +49,15 @@ class AdController extends Controller
         }
         return ApiResponse::sendResponse(200, 'empty', []);
     }
+
+    public function search(Request $request){
+        $word = $request->has('search') ? $request->input('search') : null;
+        $ads = Ad::when($word != null, function($q) use ($word){
+            $q->where('title', 'like', '%' . $word . '%');
+        })->latest()->get();
+        if(count($ads) > 0){
+            return ApiResponse::sendResponse(200, 'search completed', AdResource::collection($ads));
+        }
+        return ApiResponse::sendResponse(200, 'no results', []);
+    }
 }
